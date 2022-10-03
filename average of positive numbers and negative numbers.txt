@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+class num
+{
+	public:
+	int n,a[8],avg1=0,avg2=0,c1=0,c2=0,count=0;
+	void read()
+	{
+		cout<<"Enter number: ";
+		cin>>n;
+		while(n!=-1 && count<8)
+		{
+			a[count]=n;
+			if(n>0)
+			{
+				avg1=avg1+n;
+				c1++;
+			}
+			else
+			{
+				avg2=avg2+n;
+				c2++;
+			}
+			count++;
+			cout<<"Enter number: ";
+			cin>>n;
+		}
+	}
+	void display()
+	{
+		cout<<"The average of positive numbers is "<<avg1/c1<<"\n";
+		cout<<"The average of negative numbers is "<<avg2/c2;
