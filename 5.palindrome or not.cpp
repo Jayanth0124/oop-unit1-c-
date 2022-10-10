@@ -1,30 +1,52 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
-class palindrome {
-		char str[20];
-	public:
-		void read();
-		void check();
+class pal
+{
+    char s[100];
+public:
+    pal()
+    {
+        strcpy(s,"");
+    }
+    pal(char str[])
+    {
+        strcpy(s,str);
+    }
+    int checkpal()
+    {
+        int i,flag=0;
+        for(i=0;i<strlen(s)/2;i++)
+        {
+            if(s[i]!=s[strlen(s)-i-1])
+                flag=1;
+        }
+        if(flag==0)
+            return 1;
+        else
+            return 0;
+    }
 };
-void palindrome::read() {
-	cout<<"Enter a string=";
-	cin>>str;
-}
-void palindrome::check() {
-	int i,l;
-	l=strlen(str);
-	for(i=0; i<l/2; i++) {
-		if(str[i]!=str[l-i-1]) {
-			cout<<"Given string is not a palindrome";
-			return;
-		}
-	}
-	cout<<"Given string is a palindrome";
-}
-int main() {
-	palindrome p;
-	p.read();
-	p.check();
-	return 0;
+int main()
+{
+    char str[100];
+    int i;
+    cout<<"Enter string : ";
+    cin>>str;
+    for(i=0;i<strlen(str);i++)
+    {
+        if(str[i]>='a'&&str[i]<='z'||str[i]>='A'&&str[i]<='Z'||str[i]>='0'&&str[i]<='9')
+            continue;
+        else
+        {
+            cout<<"INVALID";
+            return 0;
+        }
+    }
+    pal p(str);
+    if(p.checkpal()==1)
+        cout<<"Palindrome";
+    else
+        cout<<"Not palindrome";
+    return 0;
 }
