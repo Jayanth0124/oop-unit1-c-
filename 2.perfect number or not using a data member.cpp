@@ -1,28 +1,45 @@
 #include<iostream>
 using namespace std;
-class Perfect {
-		int n,i;
+class Perfect
+{
+	int n;
 	public:
-		Perfect(int a) {
-			n=a;
+		void get()
+		{
+			cout<<"Enter a number "<<endl;
+			cin>>n;
 		}
-		void Perfect_Number() {
-			int sum=0;
-			for(i=1; i<n; i++) {
-				if(n%i==0)
-					sum+=i;
+		void check()
+		{
+			int sum=0,i;
+			if(n<=0)
+			{
+				cout<<"Invalid input";
 			}
-			if(sum==n)
-				cout<<"Its a Perfect Number.";
 			else
-				cout<<"Its Not a Perfect Number";
+			{
+				for(i=1;i<n;i++)
+				{
+					if(n%i==0)
+					{
+						sum=sum+i;
+					}
+				}
+				if(sum==n)
+				{
+					cout<<"Given number is perfect number";
+				}
+				else
+				{
+					cout<<"Given number is not a perfect number";
+				}
+			}
 		}
 };
-int main() {
-	int n;
-	cout<<"Enter the number: ";
-	cin>>n;
-	Perfect obj(n);
-	obj.Perfect_Number();
+int main()
+{
+	Perfect p;
+	p.get();
+	p.check();
 	return 0;
 }
