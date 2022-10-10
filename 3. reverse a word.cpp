@@ -1,34 +1,32 @@
-#include<iostream>
-#include<string.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-class Word {
-	public:
-		string word,reverse;
-		int i,l;
+void reverse(string str)
+{
+    int i, j, length = 0;
+    for(i = 0; str[i] != '\0'; i++)
+    {
+        length++;
+    }
+    for(j = length - 1; j >= 0; j--)
+    {
+        if((str[j] >= 'a' && str[j] <= 'z') || (str[j] >= 'A' && str[j] <= 'Z'))
+        {
+            cout << str[j];
+        }
+        else
+        {
+            cout << "INVALID";
+            return;
+        }
+    }
+}
 
-		Word() {
-			word=" ";
-			reverse=" ";
-			i=0;
-			l=0;
-		}
-		Word(string a) {
-			word=a;
-			l=a.length();
-		}
-		void reverseword() {
-			for(i=l-1; i>=0; i--) {
-				reverse=reverse+word[i];
-			}
-			cout<<reverse;
-		}
-};
-int main() {
-	string s;
-	cout<<"Enter a word: ";
-	cin>>s;
-	Word w(s);
-	w.reverseword();
-	return 0;
+int main()
+{
+    string str;
+    cout << "Enter any string: ";
+    cin >> str;
+    reverse(str);
+    return 0;
 }
